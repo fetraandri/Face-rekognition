@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import './style.scss';
 
 const Amodal = (props) => {
-    const { title, btn, children } = props;
+    const { title, btn, typeBtn, children } = props;
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const showModal = () => {
@@ -20,7 +20,7 @@ const Amodal = (props) => {
 
   return (
     <>
-      <Button type="primary" onClick={showModal}>
+      <Button type={typeBtn} onClick={showModal}>
         {btn}
       </Button>
       <Modal title={title} open={isModalOpen} onOk={handleOk} onCancel={handleCancel} footer={[]}>

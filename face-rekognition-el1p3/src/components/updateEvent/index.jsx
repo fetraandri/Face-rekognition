@@ -6,7 +6,9 @@ import { Option } from "antd/lib/mentions";
 import { PlaceService } from "../../service/place";
 import { EventService } from "../../service/event";
 
-export default function AddEvent() {
+export default function UpdateEvent(props) {
+    const {id_event} = props;
+
     const [dataPlace, setDataPlace] = useState([]);
     const[params, setParams] = useState({});
     const[eventList, setEventList] = useState([]);
@@ -32,7 +34,7 @@ export default function AddEvent() {
 
     const createNewEvent = async function() {
         try {
-            const data = await EventService.putEvent(params);
+            const data = await EventService.putEventUpdate(params);
             setEventList(data);
             console.log(data, eventList);
         } catch (error) {
@@ -81,6 +83,7 @@ export default function AddEvent() {
             // setEndTime('');
         setParams([
             {
+                id: id_event,
                 event_name: eventName,
                 start_event: startTime,
                 end_event: endTime,

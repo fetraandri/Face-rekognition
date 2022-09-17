@@ -7,7 +7,7 @@ export class EventService extends Http {
   static async putEvent() {
     return await Http.put(`events`);
   }
-  // static async postEvent() {
-  //   return await Http.post(`events`);
-  // }
+  static async putEventUpdate() {
+    return await Http.put(`events/1`);
+  }
 }
