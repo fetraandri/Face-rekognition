@@ -1,62 +1,43 @@
 import React, { useRef, useState } from "react";
 import AntInput from "../../components/input";
 import { Button } from "antd";
-import './style.scss';
 import { Link } from "react-router-dom";
-
-import axios from 'axios';
 import { axiosGget, login } from '../../hooks';
+import './style.scss';
 
 export default function Login() {
-    // interface RouterProps {
-    //     history: string;
-    // }
-    
-    //type Props = RouteComponentProps<RouterProps>;
-  
-    // export const Login = () => {
-      // const fielInputRef = useRef<HTMLInputElement>();
-      // const [activ, setActiv] = useState(true)
-      // const theFunction = ()=> setActiv(false);
-      // const [username, setUsername] = useState<string>("");
-      // const [password, setPassword] = useState<string>("");
+
       const [token, setToken] = useState<string>("");
       const [tokenUseur, setTokenUsern] = useState<any>();
   
     const ProjectUrl: string = "http://localhost:3000";
-    // const navigate = ()=>{
-    //   window.location.href=(ProjectUrl+"/new-event");
-    // }
-  
-  
-  
-  
-    // const functionLog = (username:string, password:string) => {
-  
-    //   login(username, password, navigate, setToken).then((respons)=>{
-    //   })
-    // }
-  
-  
     const functionLogToken = () => {
       
       axiosGget('/whoami',token,setTokenUsern,()=>{},()=>{})
       console.log(tokenUseur);
       
       if (tokenUseur.role==="MANAGER2"||tokenUseur.role==="TEACHER") {
-        localStorage.setItem("user", JSON.stringify({accessToken:token,username:"herilala"}));
+        localStorage.setItem("user", JSON.stringify({accessToken:token,username:"ezra"}));
         window.location.href=(ProjectUrl+"/new-event");
       }
+    }
+
+    const submitBtn = (e:object) => {
+      functionLogToken();
+      console.log(e);
+      
     }
     return(
         <div className="loginContainer">
             <div className="login">
                 <h1>Se connecter avec token</h1>
                 <AntInput label="Token" name="token" value={token} ></AntInput>
-                    
-                  <Button type="primary" onClick={(e)=>{functionLogToken()}}>
-                      Connecter
-                  </Button>
+                  <Link to="/home">
+                      <Button type="primary" onClick={submitBtn}>
+                          Connecter
+                      </Button>
+                  </Link>
+                
             </div>
         </div>
     //     <>

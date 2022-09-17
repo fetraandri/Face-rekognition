@@ -15,7 +15,6 @@ export default function Home() {
     const fetchDataEvent = async function () {
         try {
           const data = await EventService.getEvent();
-    
           setDataEvent(data);
           console.log(data, dataEvent);
         } catch (error) {

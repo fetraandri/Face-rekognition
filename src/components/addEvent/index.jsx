@@ -81,11 +81,11 @@ export default function AddEvent() {
             // setEndTime('');
         setParams([
             {
-                event_name: eventName,
-                start_event: startTime,
-                end_event: endTime,
-                event_status: eventStatus,
-                id_responsible: responsible,
+                eventName: eventName,
+                startEvent: startTime,
+                endEvent: endTime,
+                eventStatus: eventStatus,
+                idResponsible: responsible,
                 place: {
                     id: idPlace
                 }

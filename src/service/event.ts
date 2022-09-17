@@ -1,13 +1,15 @@
 import { Http } from "./http";
+import authHeader from "../hooks/auth-header";
 
 export class EventService extends Http {
+
   static async getEvent() {
-    return await Http.get(`events`);
+    return await Http.get(`events`, { headers: authHeader() });
   }
   static async putEvent() {
-    return await Http.put(`events`);
+    return await Http.put(`events`, { headers: authHeader() });
   }
   static async putEventUpdate() {
-    return await Http.put(`events/1`);
+    return await Http.put(`events`, { headers: authHeader() });
   }
 }
