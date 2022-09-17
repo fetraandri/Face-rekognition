@@ -3,6 +3,7 @@ import { url } from "inspector";
 // import { APIUrl } from "../constants";
 
 const APIUrl: string = "http://localhost:8080";
+// const APIUrl: string = "https://virtserver.swaggerhub.com/hei.herizo/Hei-Admin/1.0.0/";
 
 const instance = axios.create({
   baseURL: APIUrl,
