@@ -1,6 +1,9 @@
 .home{
     width: 100%;
     padding: 24px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
     .header{
         display: flex;
         justify-content: space-between;
@@ -9,7 +12,8 @@
         // padding: 22px;
         gap: 25px;
         width: 100%;
-        background: #ffffff;
+        background: #fff;
+        padding: 24px 32px;
         border-radius: 15px;
         position: relative;
     }
@@ -22,4 +26,10 @@
 }
 hr.divider{
     border-top: 1 solid #c4c4c4;
+}
+.filter{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
